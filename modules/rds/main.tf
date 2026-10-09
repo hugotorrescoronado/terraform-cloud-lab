@@ -1,6 +1,6 @@
 resource "aws_db_instance" "postgres" {
 
-  identifier = "terraform-demo"
+  identifier = var.db_identifier
 
   engine = "postgres"
 
@@ -8,7 +8,17 @@ resource "aws_db_instance" "postgres" {
 
   allocated_storage = 20
 
-  skip_final_snapshot = true
+  storage_encrypted = true
+
+  backup_retention_period = 7
+
+  deletion_protection = true
 
   publicly_accessible = false
+
+  skip_final_snapshot = true
+
+  username = var.db_username
+
+  password = var.db_password
 }
