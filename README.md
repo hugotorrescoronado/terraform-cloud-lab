@@ -18,8 +18,11 @@
 | Networking | VPC, Subnets, Route Tables |
 | Security | Security Groups, tfsec, Gitleaks |
 | Compute | EC2 |
-| Observability | CloudWatch |
+| Observability | CloudWatch, Dashboards |
 | CI/CD | GitHub Actions |
+| Containers | EKS |
+| Storage | S3, Remote State |
+| Databases | RDS PostgreSQL |
 
 Terraform and AWS Infrastructure as Code portfolio project.
 
@@ -57,6 +60,14 @@ This project demonstrates:
 
 ✅ Multi-Environment Support
 
+✅ Remote State Management
+
+✅ Multi-AZ Networking
+
+✅ CloudWatch Dashboards
+
+✅ DevSecOps Controls
+
 ## Architecture
 
 ```text
@@ -64,17 +75,27 @@ AWS Account
 │
 └── VPC
     │
-    ├── Public Subnet
+    ├── Public Subnet A
+    ├── Public Subnet B
+    │
+    ├── Private Subnet A
+    ├── Private Subnet B
     │
     ├── Internet Gateway
     │
-    ├── Route Table
+    ├── Route Tables
     │
-    ├── Security Group
+    ├── Security Groups
     │
-    ├── EC2 Instance
+    ├── EC2
     │
-    └── CloudWatch Monitoring
+    ├── RDS PostgreSQL
+    │
+    ├── S3 State Storage
+    │
+    ├── EKS Cluster
+    │
+    └── CloudWatch Dashboard
 ```
 
 ## Repository Structure
@@ -132,15 +153,27 @@ docs/
 ### Storage
 
 - S3 Bucket
-- Remote State Storage
+- Remote State Backend
+- S3 Versioning
+- S3 Encryption
 
 ### Databases
 
-- RDS PostgreSQL
+- PostgreSQL RDS
 
 ### Container Platform
 
 - EKS Cluster
+
+### Remote State
+
+- S3 Backend
+- DynamoDB Locking
+
+### Monitoring
+
+- CloudWatch Log Groups
+- CloudWatch Dashboards
 
 ## Implemented Modules
 
@@ -169,6 +202,24 @@ docs/
 ### Observability
 
 - CloudWatch Integration
+
+## Platform Features
+
+✅ Multi-AZ Networking
+
+✅ Remote State
+
+✅ EKS
+
+✅ RDS
+
+✅ S3
+
+✅ CloudWatch Dashboard
+
+✅ Dev / QA / Prod Environments
+
+✅ Infrastructure as Code
 
 ## CI/CD & Security
 
@@ -200,10 +251,14 @@ This repository includes:
 - [x] EKS Cluster
 - [x] Remote Terraform State
 - [x] Multi-AZ Networking
-- [ ] CloudWatch Dashboards
+- [x] CloudWatch Dashboards
 - [ ] Application Load Balancer
 - [ ] Auto Scaling Group
 - [ ] EKS Managed Node Groups
+- [ ] Multi-AZ RDS
+- [ ] NAT Gateway
+- [ ] Bastion Host
+- [ ] CloudWatch Alarms
 
 ## Security
 
