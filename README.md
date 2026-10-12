@@ -98,6 +98,10 @@ docs/
 | Security Group | ✅ |
 | EC2 | ✅ |
 | CloudWatch | ✅ |
+| RDS | ✅ |
+| S3 | ✅ |
+| EKS | ✅ |
+| Remote State | ✅ |
 | Terraform Validation | ✅ |
 | tfsec | ✅ |
 | Gitleaks | ✅ |
@@ -124,6 +128,19 @@ docs/
 ### Observability
 
 - CloudWatch Log Group
+
+### Storage
+
+- S3 Bucket
+- Remote State Storage
+
+### Databases
+
+- RDS PostgreSQL
+
+### Container Platform
+
+- EKS Cluster
 
 ## Implemented Modules
 
@@ -179,11 +196,14 @@ This repository includes:
 
 ### Future Enhancements
 
-- [ ] RDS Module
-- [ ] EKS Cluster
-- [ ] Multi-AZ Networking
+- [x] RDS Module
+- [x] EKS Cluster
+- [x] Remote Terraform State
+- [x] Multi-AZ Networking
 - [ ] CloudWatch Dashboards
-- [ ] Remote Terraform State
+- [ ] Application Load Balancer
+- [ ] Auto Scaling Group
+- [ ] EKS Managed Node Groups
 
 ## Security
 
