@@ -127,6 +127,7 @@ docs/
 | tfsec | ✅ |
 | Gitleaks | ✅ |
 | Dependabot | ✅ |
+| EKS Managed Node Groups | ✅ |
 
 ## AWS Resources
 
@@ -221,6 +222,8 @@ docs/
 
 ✅ Infrastructure as Code
 
+✅ EKS Managed Node Groups
+
 ## CI/CD & Security
 
 This repository includes:
@@ -254,7 +257,7 @@ This repository includes:
 - [x] CloudWatch Dashboards
 - [ ] Application Load Balancer
 - [ ] Auto Scaling Group
-- [ ] EKS Managed Node Groups
+- [x] EKS Managed Node Groups
 - [ ] Multi-AZ RDS
 - [ ] NAT Gateway
 - [ ] Bastion Host
