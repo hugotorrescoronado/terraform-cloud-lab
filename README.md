@@ -4,10 +4,14 @@
 ![AWS](https://img.shields.io/badge/AWS-Cloud-orange)
 ![EC2](https://img.shields.io/badge/EC2-Compute-orange)
 ![VPC](https://img.shields.io/badge/VPC-Networking-blue)
-![Cloud](https://img.shields.io/badge/CloudWatch-Monitoring-yellow)
+![CloudWatch](https://img.shields.io/badge/CloudWatch-Monitoring-yellow)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-CI%2FCD-2088FF)
 ![tfsec](https://img.shields.io/badge/tfsec-Security-red)
 ![Gitleaks](https://img.shields.io/badge/Gitleaks-Secrets-red)
+
+Terraform and AWS Infrastructure as Code portfolio project.
+
+---
 
 ## Technology Coverage
 
@@ -24,7 +28,7 @@
 | Storage | S3, Remote State |
 | Databases | RDS PostgreSQL |
 
-Terraform and AWS Infrastructure as Code portfolio project.
+---
 
 ## Objectives
 
@@ -39,6 +43,8 @@ This project demonstrates:
 - RDS
 - CloudWatch
 - EKS
+
+---
 
 ## Features
 
@@ -68,6 +74,12 @@ This project demonstrates:
 
 ✅ DevSecOps Controls
 
+✅ EKS Managed Node Groups
+
+✅ Application Load Balancer
+
+---
+
 ## Architecture
 
 ```text
@@ -87,6 +99,8 @@ AWS Account
     │
     ├── Security Groups
     │
+    ├── Application Load Balancer
+    │
     ├── EC2
     │
     ├── RDS PostgreSQL
@@ -95,17 +109,39 @@ AWS Account
     │
     ├── EKS Cluster
     │
+    ├── EKS Managed Node Groups
+    │
     └── CloudWatch Dashboard
 ```
+
+---
 
 ## Repository Structure
 
 ```text
 modules/
+├── alb/
+├── cloudwatch/
+├── cloudwatch-dashboard/
+├── dynamodb-lock/
+├── ec2/
+├── eks/
+├── rds/
+├── s3/
+├── s3-state/
+└── vpc/
+
 environments/
+├── dev/
+├── qa/
+└── prod/
+
 docs/
+
 .github/
 ```
+
+---
 
 ## Current Status
 
@@ -119,37 +155,39 @@ docs/
 | Security Group | ✅ |
 | EC2 | ✅ |
 | CloudWatch | ✅ |
+| CloudWatch Dashboard | ✅ |
 | RDS | ✅ |
 | S3 | ✅ |
 | EKS | ✅ |
+| EKS Managed Node Groups | ✅ |
 | Remote State | ✅ |
+| Multi-AZ Networking | ✅ |
 | Terraform Validation | ✅ |
 | tfsec | ✅ |
 | Gitleaks | ✅ |
 | Dependabot | ✅ |
-| EKS Managed Node Groups | ✅ |
+| Application Load Balancer | ✅ |
+
+---
 
 ## AWS Resources
 
 ### Networking
 
 - VPC
-- Public Subnet
+- Public Subnets
+- Private Subnets
 - Internet Gateway
-- Route Table
-- Route Association
+- Route Tables
+- Route Associations
 
 ### Security
 
-- Security Group
+- Security Groups
 
 ### Compute
 
 - EC2 Instance
-
-### Observability
-
-- CloudWatch Log Group
 
 ### Storage
 
@@ -165,16 +203,19 @@ docs/
 ### Container Platform
 
 - EKS Cluster
+- EKS Managed Node Groups
 
 ### Remote State
 
 - S3 Backend
 - DynamoDB Locking
 
-### Monitoring
+### Observability
 
 - CloudWatch Log Groups
 - CloudWatch Dashboards
+
+---
 
 ## Implemented Modules
 
@@ -187,7 +228,8 @@ docs/
 
 ### Networking
 
-- Public Subnet
+- Public Subnets
+- Private Subnets
 - Internet Gateway
 - Route Tables
 - Route Associations
@@ -200,9 +242,26 @@ docs/
 
 - EC2 Instance Provisioning
 
+### Storage
+
+- S3 Bucket
+- Remote State Backend
+
+### Database
+
+- PostgreSQL RDS
+
+### Container Platform
+
+- EKS Cluster
+- EKS Managed Node Groups
+
 ### Observability
 
 - CloudWatch Integration
+- CloudWatch Dashboard
+
+---
 
 ## Platform Features
 
@@ -211,6 +270,8 @@ docs/
 ✅ Remote State
 
 ✅ EKS
+
+✅ EKS Managed Node Groups
 
 ✅ RDS
 
@@ -222,7 +283,7 @@ docs/
 
 ✅ Infrastructure as Code
 
-✅ EKS Managed Node Groups
+---
 
 ## CI/CD & Security
 
@@ -233,6 +294,8 @@ This repository includes:
 - Gitleaks Secret Detection
 - Dependabot Dependency Updates
 - GitHub Actions Automation
+
+---
 
 ## Roadmap
 
@@ -247,21 +310,23 @@ This repository includes:
 - [x] tfsec
 - [x] Gitleaks
 - [x] Dependabot
-
-### Future Enhancements
-
 - [x] RDS Module
 - [x] EKS Cluster
 - [x] Remote Terraform State
 - [x] Multi-AZ Networking
 - [x] CloudWatch Dashboards
-- [ ] Application Load Balancer
-- [ ] Auto Scaling Group
 - [x] EKS Managed Node Groups
+- [x] Application Load Balancer
+
+### Future Enhancements
+
+- [ ] Auto Scaling Group
 - [ ] Multi-AZ RDS
 - [ ] NAT Gateway
 - [ ] Bastion Host
 - [ ] CloudWatch Alarms
+
+---
 
 ## Security
 
@@ -273,6 +338,8 @@ This repository includes:
 
 ✅ Dependabot Automated Dependency Updates
 
+---
+
 ## CI/CD
 
 This repository includes:
@@ -282,18 +349,23 @@ This repository includes:
 - Security Scanning
 - Infrastructure Code Quality Checks
 
+---
+
 ## Future AWS Services
 
 Planned implementations:
 
-- RDS PostgreSQL
-- EKS Cluster
-- Load Balancer
+- Application Load Balancer
 - Auto Scaling Group
-- S3 Storage
-- CloudWatch Dashboards
-- Multi-AZ Deployments
+- Multi-AZ RDS
+- NAT Gateway
+- Bastion Host
+- CloudWatch Alarms
+
+---
 
 ## Author
 
-Hugo Torres Coronado
+**Hugo Torres Coronado**
+
+Senior Software Test Automation Engineer | SDET | DevOps | Platform Engineer
