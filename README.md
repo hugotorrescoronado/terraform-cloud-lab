@@ -9,7 +9,7 @@
 ![tfsec](https://img.shields.io/badge/tfsec-Security-red)
 ![Gitleaks](https://img.shields.io/badge/Gitleaks-Secrets-red)
 
-AWS and Terraform Infrastructure as Code portfolio project demonstrating modern DevOps, Platform Engineering, Security, Observability, and Cloud Operations practices.
+AWS and Terraform Infrastructure as Code portfolio project demonstrating modern DevOps, Platform Engineering, Security, Networking, Observability, and Cloud Operations practices.
 
 ---
 
@@ -20,7 +20,7 @@ AWS and Terraform Infrastructure as Code portfolio project demonstrating modern 
 | IaC | Terraform |
 | Cloud | AWS |
 | Networking | VPC, Subnets, NAT Gateway, Route Tables |
-| Security | Security Groups, tfsec, Gitleaks |
+| Security | Security Groups, Bastion Host, tfsec, Gitleaks |
 | Compute | EC2, Auto Scaling |
 | Load Balancing | Application Load Balancer |
 | Observability | CloudWatch Logs, Dashboards, Alarms |
@@ -41,17 +41,19 @@ This project demonstrates:
 - Infrastructure as Code
 - Multi-AZ Networking
 - NAT Gateway Architecture
+- Bastion Host Architecture
 - EC2 Compute
 - Auto Scaling
 - Application Load Balancers
-- S3 Storage
 - Remote State Management
 - PostgreSQL RDS
+- Multi-AZ RDS
 - CloudWatch Monitoring
 - CloudWatch Alarms
-- Amazon SNS
+- SNS Notifications
 - EKS Kubernetes
-- DevSecOps Controls
+- Platform Engineering
+- DevSecOps Practices
 
 ---
 
@@ -65,17 +67,19 @@ This project demonstrates:
 
 ✅ NAT Gateway
 
+✅ Bastion Host
+
 ✅ EC2 Provisioning
 
 ✅ Auto Scaling Groups
 
 ✅ Application Load Balancer
 
-✅ S3 Storage
-
 ✅ Remote State Management
 
-✅ RDS PostgreSQL
+✅ S3 Versioning & Encryption
+
+✅ PostgreSQL RDS
 
 ✅ Multi-AZ PostgreSQL RDS
 
@@ -118,6 +122,8 @@ AWS Account
     │
     ├── NAT Gateway
     │
+    ├── Bastion Host
+    │
     ├── Route Tables
     │
     ├── Security Groups
@@ -153,6 +159,7 @@ AWS Account
 modules/
 ├── alb/
 ├── autoscaling/
+├── bastion/
 ├── cloudwatch/
 ├── cloudwatch-alarms/
 ├── cloudwatch-dashboard/
@@ -187,6 +194,7 @@ docs/
 | Private Subnets | ✅ |
 | Internet Gateway | ✅ |
 | NAT Gateway | ✅ |
+| Bastion Host | ✅ |
 | Route Tables | ✅ |
 | Security Groups | ✅ |
 | EC2 | ✅ |
@@ -223,6 +231,11 @@ docs/
 - Route Tables
 - Route Table Associations
 
+### Security
+
+- Security Groups
+- Bastion Host
+
 ### Load Balancing
 
 - Application Load Balancer
@@ -239,22 +252,20 @@ docs/
 
 - S3 Bucket
 - Remote State Backend
-- S3 Versioning
-- S3 Encryption
-
-### Databases
+- Versioning
+- Encryption
 
 ### Databases
 
 - PostgreSQL RDS
 - Multi-AZ Deployment
-- Encrypted Storage
 - DB Subnet Groups
+- Storage Encryption
 
 ### Container Platform
 
 - EKS Cluster
-- EKS Managed Node Groups
+- Managed Node Groups
 
 ### Remote State
 
@@ -296,6 +307,7 @@ docs/
 ### Security
 
 - Security Groups
+- Bastion Host
 
 ### Compute
 
@@ -327,7 +339,7 @@ docs/
 ### Container Platform
 
 - EKS Cluster
-- EKS Managed Node Groups
+- Managed Node Groups
 
 ### Observability
 
@@ -350,6 +362,8 @@ docs/
 
 ✅ NAT Gateway Architecture
 
+✅ Bastion Host
+
 ✅ Remote State
 
 ✅ S3 Versioning & Encryption
@@ -361,8 +375,6 @@ docs/
 ✅ Application Load Balancer
 
 ✅ Auto Scaling Groups
-
-✅ PostgreSQL RDS
 
 ✅ Multi-AZ PostgreSQL RDS
 
@@ -398,6 +410,7 @@ This repository includes:
 - [x] Private Subnets
 - [x] Internet Gateway
 - [x] NAT Gateway
+- [x] Bastion Host
 - [x] Route Tables
 - [x] Security Groups
 - [x] EC2 Instances
@@ -408,6 +421,7 @@ This repository includes:
 - [x] CloudWatch Alarms
 - [x] SNS Notifications
 - [x] PostgreSQL RDS
+- [x] Multi-AZ PostgreSQL RDS
 - [x] EKS Cluster
 - [x] EKS Managed Node Groups
 - [x] Remote Terraform State
@@ -416,11 +430,18 @@ This repository includes:
 - [x] tfsec
 - [x] Gitleaks
 - [x] Dependabot
-- [x] Multi-AZ RDS
 
 ### Future Enhancements
 
-- [ ] Bastion Host
+This project is currently feature-complete as a Terraform/AWS portfolio implementation.
+
+Future expansion ideas:
+
+- Prometheus
+- Grafana
+- ArgoCD
+- Kubernetes Add-ons
+- GitOps
 
 ---
 
@@ -436,16 +457,8 @@ This repository includes:
 
 ---
 
-## Future AWS Services
-
-Planned implementations:
-
-- Bastion Host
-
----
-
 ## Author
 
 **Hugo Torres Coronado**
 
-Senior Software Test Automation Engineer | SDET | DevOps | Platform Engineer
+Senior Software Test Automation Engineer | SDET | DevOps Engineer | Platform Engineer
