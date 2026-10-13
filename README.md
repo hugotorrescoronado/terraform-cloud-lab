@@ -9,7 +9,7 @@
 ![tfsec](https://img.shields.io/badge/tfsec-Security-red)
 ![Gitleaks](https://img.shields.io/badge/Gitleaks-Secrets-red)
 
-AWS and Terraform Infrastructure as Code portfolio project demonstrating modern DevOps, Platform Engineering, Security, and Cloud Operations practices.
+AWS and Terraform Infrastructure as Code portfolio project demonstrating modern DevOps, Platform Engineering, Security, Observability, and Cloud Operations practices.
 
 ---
 
@@ -19,14 +19,15 @@ AWS and Terraform Infrastructure as Code portfolio project demonstrating modern 
 |-----------|-------------|
 | IaC | Terraform |
 | Cloud | AWS |
-| Networking | VPC, Subnets, Route Tables |
+| Networking | VPC, Subnets, NAT Gateway, Route Tables |
 | Security | Security Groups, tfsec, Gitleaks |
 | Compute | EC2, Auto Scaling |
 | Load Balancing | Application Load Balancer |
-| Observability | CloudWatch, Dashboards, Alarms |
+| Observability | CloudWatch Logs, Dashboards, Alarms |
 | Containers | EKS, Managed Node Groups |
 | Storage | S3, Remote State |
 | Databases | PostgreSQL RDS |
+| Notifications | SNS |
 | CI/CD | GitHub Actions |
 
 ---
@@ -38,7 +39,8 @@ This project demonstrates:
 - Terraform
 - AWS
 - Infrastructure as Code
-- VPC Networking
+- Multi-AZ Networking
+- NAT Gateway Architecture
 - EC2 Compute
 - Auto Scaling
 - Application Load Balancers
@@ -47,6 +49,7 @@ This project demonstrates:
 - PostgreSQL RDS
 - CloudWatch Monitoring
 - CloudWatch Alarms
+- Amazon SNS
 - EKS Kubernetes
 - DevSecOps Controls
 
@@ -57,6 +60,10 @@ This project demonstrates:
 ✅ Infrastructure as Code
 
 ✅ Multi-AZ Networking
+
+✅ Public and Private Subnets
+
+✅ NAT Gateway
 
 ✅ EC2 Provisioning
 
@@ -107,6 +114,8 @@ AWS Account
     │
     ├── Internet Gateway
     │
+    ├── NAT Gateway
+    │
     ├── Route Tables
     │
     ├── Security Groups
@@ -148,6 +157,7 @@ modules/
 ├── dynamodb-lock/
 ├── ec2/
 ├── eks/
+├── nat-gateway/
 ├── rds/
 ├── s3/
 ├── s3-state/
@@ -174,6 +184,7 @@ docs/
 | Public Subnets | ✅ |
 | Private Subnets | ✅ |
 | Internet Gateway | ✅ |
+| NAT Gateway | ✅ |
 | Route Tables | ✅ |
 | Security Groups | ✅ |
 | EC2 | ✅ |
@@ -182,7 +193,8 @@ docs/
 | CloudWatch | ✅ |
 | CloudWatch Dashboard | ✅ |
 | CloudWatch Alarms | ✅ |
-| RDS PostgreSQL | ✅ |
+| SNS Notifications | ✅ |
+| PostgreSQL RDS | ✅ |
 | S3 | ✅ |
 | EKS Cluster | ✅ |
 | EKS Managed Node Groups | ✅ |
@@ -203,6 +215,8 @@ docs/
 - Public Subnets
 - Private Subnets
 - Internet Gateway
+- NAT Gateway
+- Elastic IP
 - Route Tables
 - Route Table Associations
 
@@ -216,6 +230,7 @@ docs/
 
 - EC2 Instances
 - Auto Scaling Groups
+- Launch Templates
 
 ### Storage
 
@@ -243,7 +258,11 @@ docs/
 - CloudWatch Logs
 - CloudWatch Dashboards
 - CloudWatch Alarms
-- SNS Notifications
+
+### Notifications
+
+- SNS Topics
+- Alarm Notifications
 
 ---
 
@@ -261,6 +280,8 @@ docs/
 - Public Subnets
 - Private Subnets
 - Internet Gateway
+- NAT Gateway
+- Elastic IP
 - Route Tables
 - Route Associations
 
@@ -270,7 +291,7 @@ docs/
 
 ### Compute
 
-- EC2 Instance Provisioning
+- EC2 Provisioning
 
 ### Load Balancing
 
@@ -302,7 +323,11 @@ docs/
 - CloudWatch Integration
 - CloudWatch Dashboard
 - CloudWatch Alarms
-- SNS Notifications
+
+### Notifications
+
+- SNS Topics
+- Alarm Integrations
 
 ---
 
@@ -311,6 +336,8 @@ docs/
 ✅ Infrastructure as Code
 
 ✅ Multi-AZ Networking
+
+✅ NAT Gateway Architecture
 
 ✅ Remote State
 
@@ -354,8 +381,10 @@ This repository includes:
 ### Completed
 
 - [x] VPC Module
-- [x] Public and Private Subnets
+- [x] Public Subnets
+- [x] Private Subnets
 - [x] Internet Gateway
+- [x] NAT Gateway
 - [x] Route Tables
 - [x] Security Groups
 - [x] EC2 Instances
@@ -365,7 +394,7 @@ This repository includes:
 - [x] CloudWatch Dashboard
 - [x] CloudWatch Alarms
 - [x] SNS Notifications
-- [x] RDS PostgreSQL
+- [x] PostgreSQL RDS
 - [x] EKS Cluster
 - [x] EKS Managed Node Groups
 - [x] Remote Terraform State
@@ -378,7 +407,6 @@ This repository includes:
 ### Future Enhancements
 
 - [ ] Multi-AZ RDS
-- [ ] NAT Gateway
 - [ ] Bastion Host
 
 ---
@@ -399,8 +427,7 @@ This repository includes:
 
 Planned implementations:
 
-- Multi-AZ RDS
-- NAT Gateway
+- Multi-AZ PostgreSQL RDS
 - Bastion Host
 
 ---
