@@ -1,25 +1,27 @@
 output "cluster_id" {
-  description = "EKS Cluster ID"
+
+  description = "Cluster ID"
 
   value = aws_eks_cluster.main.id
 }
+
 output "cluster_name" {
-  description = "EKS Cluster Name"
+
+  description = "Cluster Name"
 
   value = aws_eks_cluster.main.name
 }
+
 output "cluster_endpoint" {
-  description = "EKS API Endpoint"
+
+  description = "Cluster Endpoint"
 
   value = aws_eks_cluster.main.endpoint
 }
-output "cluster_version" {
-  description = "Kubernetes Version"
 
-  value = aws_eks_cluster.main.version
-}
-output "cluster_security_group_id" {
-  description = "Cluster Security Group"
+output "node_group_name" {
 
-  value = aws_eks_cluster.main.vpc_config[0].cluster_security_group_id
+  description = "Node Group Name"
+
+  value = aws_eks_node_group.main.node_group_name
 }
