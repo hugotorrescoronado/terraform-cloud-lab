@@ -9,7 +9,7 @@
 ![tfsec](https://img.shields.io/badge/tfsec-Security-red)
 ![Gitleaks](https://img.shields.io/badge/Gitleaks-Secrets-red)
 
-Terraform and AWS Infrastructure as Code portfolio project.
+AWS and Terraform Infrastructure as Code portfolio project demonstrating modern DevOps, Platform Engineering, Security, and Cloud Operations practices.
 
 ---
 
@@ -21,12 +21,13 @@ Terraform and AWS Infrastructure as Code portfolio project.
 | Cloud | AWS |
 | Networking | VPC, Subnets, Route Tables |
 | Security | Security Groups, tfsec, Gitleaks |
-| Compute | EC2 |
+| Compute | EC2, Auto Scaling |
+| Load Balancing | Application Load Balancer |
 | Observability | CloudWatch, Dashboards |
-| CI/CD | GitHub Actions |
-| Containers | EKS |
+| Containers | EKS, Managed Node Groups |
 | Storage | S3, Remote State |
-| Databases | RDS PostgreSQL |
+| Databases | PostgreSQL RDS |
+| CI/CD | GitHub Actions |
 
 ---
 
@@ -37,12 +38,15 @@ This project demonstrates:
 - Terraform
 - AWS
 - Infrastructure as Code
-- VPC
-- EC2
-- S3
-- RDS
-- CloudWatch
-- EKS
+- VPC Networking
+- EC2 Compute
+- Auto Scaling
+- Application Load Balancers
+- S3 Storage
+- RDS PostgreSQL
+- CloudWatch Monitoring
+- EKS Kubernetes
+- DevSecOps Controls
 
 ---
 
@@ -50,33 +54,35 @@ This project demonstrates:
 
 ✅ Infrastructure as Code
 
-✅ AWS VPC
+✅ Multi-AZ Networking
 
 ✅ EC2 Provisioning
 
+✅ Auto Scaling Groups
+
+✅ Application Load Balancer
+
 ✅ S3 Storage
-
-✅ RDS Databases
-
-✅ CloudWatch Monitoring
-
-✅ EKS Kubernetes
-
-✅ Terraform Modules
-
-✅ Multi-Environment Support
 
 ✅ Remote State Management
 
-✅ Multi-AZ Networking
+✅ RDS PostgreSQL
 
-✅ CloudWatch Dashboards
-
-✅ DevSecOps Controls
+✅ EKS Kubernetes
 
 ✅ EKS Managed Node Groups
 
-✅ Application Load Balancer
+✅ CloudWatch Monitoring
+
+✅ CloudWatch Dashboards
+
+✅ GitHub Actions CI/CD
+
+✅ tfsec Security Scanning
+
+✅ Gitleaks Secret Detection
+
+✅ Dependabot Dependency Management
 
 ---
 
@@ -101,7 +107,11 @@ AWS Account
     │
     ├── Application Load Balancer
     │
-    ├── EC2
+    ├── Target Group
+    │
+    ├── Auto Scaling Group
+    │
+    ├── EC2 Instances
     │
     ├── RDS PostgreSQL
     │
@@ -121,6 +131,7 @@ AWS Account
 ```text
 modules/
 ├── alb/
+├── autoscaling/
 ├── cloudwatch/
 ├── cloudwatch-dashboard/
 ├── dynamodb-lock/
@@ -139,6 +150,7 @@ environments/
 docs/
 
 .github/
+└── workflows/
 ```
 
 ---
@@ -148,17 +160,19 @@ docs/
 | Area | Status |
 |--------|--------|
 | VPC | ✅ |
-| Public Subnet | ✅ |
+| Public Subnets | ✅ |
+| Private Subnets | ✅ |
 | Internet Gateway | ✅ |
-| Route Table | ✅ |
-| Route Association | ✅ |
-| Security Group | ✅ |
+| Route Tables | ✅ |
+| Security Groups | ✅ |
 | EC2 | ✅ |
+| Application Load Balancer | ✅ |
+| Auto Scaling Group | ✅ |
 | CloudWatch | ✅ |
 | CloudWatch Dashboard | ✅ |
-| RDS | ✅ |
+| RDS PostgreSQL | ✅ |
 | S3 | ✅ |
-| EKS | ✅ |
+| EKS Cluster | ✅ |
 | EKS Managed Node Groups | ✅ |
 | Remote State | ✅ |
 | Multi-AZ Networking | ✅ |
@@ -166,7 +180,6 @@ docs/
 | tfsec | ✅ |
 | Gitleaks | ✅ |
 | Dependabot | ✅ |
-| Application Load Balancer | ✅ |
 
 ---
 
@@ -179,15 +192,18 @@ docs/
 - Private Subnets
 - Internet Gateway
 - Route Tables
-- Route Associations
+- Route Table Associations
 
-### Security
+### Load Balancing
 
-- Security Groups
+- Application Load Balancer
+- Target Groups
+- HTTP Listener
 
 ### Compute
 
-- EC2 Instance
+- EC2 Instances
+- Auto Scaling Groups
 
 ### Storage
 
@@ -212,7 +228,7 @@ docs/
 
 ### Observability
 
-- CloudWatch Log Groups
+- CloudWatch Logs
 - CloudWatch Dashboards
 
 ---
@@ -223,8 +239,8 @@ docs/
 
 - VPC Creation
 - CIDR Configuration
-- Outputs
 - Variables
+- Outputs
 
 ### Networking
 
@@ -241,6 +257,17 @@ docs/
 ### Compute
 
 - EC2 Instance Provisioning
+
+### Load Balancing
+
+- Application Load Balancer
+- Target Groups
+- HTTP Listener
+
+### Scaling
+
+- Launch Templates
+- Auto Scaling Group
 
 ### Storage
 
@@ -265,23 +292,27 @@ docs/
 
 ## Platform Features
 
+✅ Infrastructure as Code
+
 ✅ Multi-AZ Networking
 
 ✅ Remote State
 
+✅ S3 Versioning & Encryption
+
 ✅ EKS
 
-✅ EKS Managed Node Groups
+✅ Managed Node Groups
 
-✅ RDS
+✅ Application Load Balancer
 
-✅ S3
+✅ Auto Scaling Groups
+
+✅ RDS PostgreSQL
 
 ✅ CloudWatch Dashboard
 
 ✅ Dev / QA / Prod Environments
-
-✅ Infrastructure as Code
 
 ---
 
@@ -289,38 +320,41 @@ docs/
 
 This repository includes:
 
+- GitHub Actions
 - Terraform Validation
 - tfsec Security Scanning
 - Gitleaks Secret Detection
-- Dependabot Dependency Updates
-- GitHub Actions Automation
+- Dependabot Updates
+- Infrastructure Code Quality Checks
 
 ---
 
 ## Roadmap
 
+### Completed
+
 - [x] VPC Module
-- [x] Public Subnet
+- [x] Public & Private Subnets
 - [x] Internet Gateway
 - [x] Route Tables
 - [x] Security Groups
-- [x] EC2 Instance
-- [x] CloudWatch
+- [x] EC2 Instances
+- [x] Application Load Balancer
+- [x] Auto Scaling Group
+- [x] CloudWatch Monitoring
+- [x] CloudWatch Dashboard
+- [x] RDS PostgreSQL
+- [x] EKS Cluster
+- [x] EKS Managed Node Groups
+- [x] Remote Terraform State
+- [x] Multi-AZ Networking
 - [x] Terraform Validation
 - [x] tfsec
 - [x] Gitleaks
 - [x] Dependabot
-- [x] RDS Module
-- [x] EKS Cluster
-- [x] Remote Terraform State
-- [x] Multi-AZ Networking
-- [x] CloudWatch Dashboards
-- [x] EKS Managed Node Groups
-- [x] Application Load Balancer
 
 ### Future Enhancements
 
-- [ ] Auto Scaling Group
 - [ ] Multi-AZ RDS
 - [ ] NAT Gateway
 - [ ] Bastion Host
@@ -340,23 +374,10 @@ This repository includes:
 
 ---
 
-## CI/CD
-
-This repository includes:
-
-- GitHub Actions
-- Terraform Validation
-- Security Scanning
-- Infrastructure Code Quality Checks
-
----
-
 ## Future AWS Services
 
 Planned implementations:
 
-- Application Load Balancer
-- Auto Scaling Group
 - Multi-AZ RDS
 - NAT Gateway
 - Bastion Host
