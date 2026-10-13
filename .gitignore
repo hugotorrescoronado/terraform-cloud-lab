@@ -1,0 +1,12 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+
+# Terraform lock file
+terraform.lock.hcl
+
+# Reports
+playwright-report/
+test-results/
