@@ -26,7 +26,7 @@ AWS and Terraform Infrastructure as Code portfolio project demonstrating modern 
 | Observability | CloudWatch Logs, Dashboards, Alarms |
 | Containers | EKS, Managed Node Groups |
 | Storage | S3, Remote State |
-| Databases | PostgreSQL RDS |
+| Databases | PostgreSQL RDS, Multi-AZ |
 | Notifications | SNS |
 | CI/CD | GitHub Actions |
 
@@ -76,6 +76,8 @@ This project demonstrates:
 ✅ Remote State Management
 
 ✅ RDS PostgreSQL
+
+✅ Multi-AZ PostgreSQL RDS
 
 ✅ EKS Kubernetes
 
@@ -128,7 +130,7 @@ AWS Account
     │
     ├── EC2 Instances
     │
-    ├── PostgreSQL RDS
+    ├── Multi-AZ PostgreSQL RDS
     │
     ├── S3 State Storage
     │
@@ -195,6 +197,7 @@ docs/
 | CloudWatch Alarms | ✅ |
 | SNS Notifications | ✅ |
 | PostgreSQL RDS | ✅ |
+| Multi-AZ PostgreSQL RDS | ✅ |
 | S3 | ✅ |
 | EKS Cluster | ✅ |
 | EKS Managed Node Groups | ✅ |
@@ -241,7 +244,12 @@ docs/
 
 ### Databases
 
+### Databases
+
 - PostgreSQL RDS
+- Multi-AZ Deployment
+- Encrypted Storage
+- DB Subnet Groups
 
 ### Container Platform
 
@@ -312,6 +320,9 @@ docs/
 ### Database
 
 - PostgreSQL RDS
+- Multi-AZ Deployment
+- DB Subnet Group
+- Storage Encryption
 
 ### Container Platform
 
@@ -352,6 +363,8 @@ docs/
 ✅ Auto Scaling Groups
 
 ✅ PostgreSQL RDS
+
+✅ Multi-AZ PostgreSQL RDS
 
 ✅ CloudWatch Dashboard
 
@@ -403,10 +416,10 @@ This repository includes:
 - [x] tfsec
 - [x] Gitleaks
 - [x] Dependabot
+- [x] Multi-AZ RDS
 
 ### Future Enhancements
 
-- [ ] Multi-AZ RDS
 - [ ] Bastion Host
 
 ---
@@ -427,7 +440,6 @@ This repository includes:
 
 Planned implementations:
 
-- Multi-AZ PostgreSQL RDS
 - Bastion Host
 
 ---

@@ -1,24 +1,50 @@
-resource "aws_db_instance" "postgres" {
+resource "aws_db_subnet_group" "main" {
+
+  name = "${var.db_identifier}-subnet-group"
+
+  subnet_ids = [
+    var.private_subnet_a_id,
+    var.private_subnet_b_id
+  ]
+
+  tags = {
+    Name = "${var.db_identifier}-subnet-group"
+  }
+}
+
+resource "aws_db_instance" "main" {
 
   identifier = var.db_identifier
 
-  engine = "postgres"
-
-  instance_class = "db.t3.micro"
-
   allocated_storage = 20
 
-  storage_encrypted = true
+  storage_type = "gp3"
 
-  backup_retention_period = 7
+  engine = "postgres"
 
-  deletion_protection = true
+  engine_version = "15"
 
-  publicly_accessible = false
-
-  skip_final_snapshot = true
+  instance_class = "db.t3.micro"
 
   username = var.db_username
 
   password = var.db_password
+
+  multi_az = true
+
+  publicly_accessible = false
+
+  storage_encrypted = true
+
+  skip_final_snapshot = true
+
+  db_subnet_group_name = aws_db_subnet_group.main.name
+
+  vpc_security_group_ids = [
+    var.security_group_id
+  ]
+
+  tags = {
+    Name = var.db_identifier
+  }
 }
