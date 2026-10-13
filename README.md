@@ -23,7 +23,7 @@ AWS and Terraform Infrastructure as Code portfolio project demonstrating modern 
 | Security | Security Groups, tfsec, Gitleaks |
 | Compute | EC2, Auto Scaling |
 | Load Balancing | Application Load Balancer |
-| Observability | CloudWatch, Dashboards |
+| Observability | CloudWatch, Dashboards, Alarms |
 | Containers | EKS, Managed Node Groups |
 | Storage | S3, Remote State |
 | Databases | PostgreSQL RDS |
@@ -43,8 +43,10 @@ This project demonstrates:
 - Auto Scaling
 - Application Load Balancers
 - S3 Storage
-- RDS PostgreSQL
+- Remote State Management
+- PostgreSQL RDS
 - CloudWatch Monitoring
+- CloudWatch Alarms
 - EKS Kubernetes
 - DevSecOps Controls
 
@@ -75,6 +77,10 @@ This project demonstrates:
 ✅ CloudWatch Monitoring
 
 ✅ CloudWatch Dashboards
+
+✅ CloudWatch Alarms
+
+✅ SNS Notifications
 
 ✅ GitHub Actions CI/CD
 
@@ -113,7 +119,7 @@ AWS Account
     │
     ├── EC2 Instances
     │
-    ├── RDS PostgreSQL
+    ├── PostgreSQL RDS
     │
     ├── S3 State Storage
     │
@@ -121,7 +127,11 @@ AWS Account
     │
     ├── EKS Managed Node Groups
     │
-    └── CloudWatch Dashboard
+    ├── CloudWatch Dashboard
+    │
+    ├── CloudWatch Alarms
+    │
+    └── SNS Notifications
 ```
 
 ---
@@ -133,6 +143,7 @@ modules/
 ├── alb/
 ├── autoscaling/
 ├── cloudwatch/
+├── cloudwatch-alarms/
 ├── cloudwatch-dashboard/
 ├── dynamodb-lock/
 ├── ec2/
@@ -170,6 +181,7 @@ docs/
 | Auto Scaling Group | ✅ |
 | CloudWatch | ✅ |
 | CloudWatch Dashboard | ✅ |
+| CloudWatch Alarms | ✅ |
 | RDS PostgreSQL | ✅ |
 | S3 | ✅ |
 | EKS Cluster | ✅ |
@@ -230,6 +242,8 @@ docs/
 
 - CloudWatch Logs
 - CloudWatch Dashboards
+- CloudWatch Alarms
+- SNS Notifications
 
 ---
 
@@ -267,7 +281,7 @@ docs/
 ### Scaling
 
 - Launch Templates
-- Auto Scaling Group
+- Auto Scaling Groups
 
 ### Storage
 
@@ -287,6 +301,8 @@ docs/
 
 - CloudWatch Integration
 - CloudWatch Dashboard
+- CloudWatch Alarms
+- SNS Notifications
 
 ---
 
@@ -308,9 +324,13 @@ docs/
 
 ✅ Auto Scaling Groups
 
-✅ RDS PostgreSQL
+✅ PostgreSQL RDS
 
 ✅ CloudWatch Dashboard
+
+✅ CloudWatch Alarms
+
+✅ SNS Notifications
 
 ✅ Dev / QA / Prod Environments
 
@@ -334,7 +354,7 @@ This repository includes:
 ### Completed
 
 - [x] VPC Module
-- [x] Public & Private Subnets
+- [x] Public and Private Subnets
 - [x] Internet Gateway
 - [x] Route Tables
 - [x] Security Groups
@@ -343,6 +363,8 @@ This repository includes:
 - [x] Auto Scaling Group
 - [x] CloudWatch Monitoring
 - [x] CloudWatch Dashboard
+- [x] CloudWatch Alarms
+- [x] SNS Notifications
 - [x] RDS PostgreSQL
 - [x] EKS Cluster
 - [x] EKS Managed Node Groups
@@ -358,7 +380,6 @@ This repository includes:
 - [ ] Multi-AZ RDS
 - [ ] NAT Gateway
 - [ ] Bastion Host
-- [ ] CloudWatch Alarms
 
 ---
 
@@ -381,7 +402,6 @@ Planned implementations:
 - Multi-AZ RDS
 - NAT Gateway
 - Bastion Host
-- CloudWatch Alarms
 
 ---
 
